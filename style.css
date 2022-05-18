@@ -2,7 +2,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-
 :root {
   font-size: 62.5%; /*1 rem = 10 px*/
   --primary-color: hsl(170, 100%, 26%);
@@ -10,31 +9,48 @@
   --paragraph:  hsl(210, 9%, 31%);
   --brand-beige:  hsl(39, 100%, 97%);
   --brand-ligth:  hsl(148, 23%, 89%);
+  --nav-height: 7.2rem;
 }
 body{
   font-family: 'DM Sans';
   font-size: 1.6rem;
   text-align: center;
 }
-header{
-  width: 37.5rem;
-  margin-right: auto; /*Preenchimento lateral*/
-  margin-left: auto;   
-  margin-top: 4.1rem;
+.wrapper{  
+    width: 37.5rem;
+    margin-inline: auto; /*Preenchimento lateral*/
+    padding-inline:2.4rem;
+    
+    
 }
+/*====HEADER=========*/
+header{
+   margin-top: calc(4.1rem + var(--nav-height));
+}
+header::before{  /*Colocando conteudo antes do header*/
+  content: "";
+  width: 100vw;
+  height:calc(108rem + var(--nav-height)) ;
+  background-color: var(--brand-ligth);
+  display: block; /*Um plano de fundo solido, quadrado e colorido*/
 
-h4{
+  position:absolute; /*Por cima dos outros conteudos*/  
+  top:0;
+  left: 0;
+  z-index: -1;
+}
+header h4{
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
-h1{
+header h1{
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 2.4rem;
 }
-p{
+header p{
   font-size: 1.8rem;
   line-height: 150%; 
   font-weight: 400;
@@ -45,9 +61,7 @@ h3{
   font-size: 3.4rem;
   
 }
-
-
-button{
+header button{
   background: var(--primary-color);
   border: none;
   border-radius: 4rem;
@@ -65,7 +79,12 @@ button{
   margin-left: auto;
   margin-right: auto ;
 }
-
+header img {
+  width: 26.4rem;
+  display: block; /* desprende a imagem mas perde o alinhamento*/
+  margin-inline: auto; /* retorna o alinhamento*/
+  object-position: 0 2rem; /*a imagem é uma casca que tem um conteudo, coordenada x, y , fez o conteudo abaixar*/
+}
 .stats{
 
   width: 32.7rem;
@@ -79,23 +98,47 @@ button{
   justify-content: center;
   gap: 6rem;
   
+ 
 }
-
 .stat h3{
   font-size: 4.8rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 0.4rem;
 }
-
 .stat p{
   margin: 0;
   color: var(--primary-color);
+  font-size: 1.6rem;
+  line-height: 150%;
+
+
+}
+/*====NAVIGATION=========*/
+nav{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  height: var(--nav-height); /*Altura*/
+  top: 0;
+  left:50%;
+  transform: translatex(-50%); /*Divide a tela em dois e define espaçamento*/
+
+}
+nav.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav.scroll{
+  background: var(--primary-color);
+  width: 100vw;
+}
+nav.scroll svg:nth-child(1) path{
+  fill:white;
   
 }
-header img {
-  width: 26.4rem;
-  display: block;
-  margin-inline: auto;
-  object-position: 0 2rem;
+nav.scroll svg:nth-child(2) path{
+  stroke: white;
+ 
 }
