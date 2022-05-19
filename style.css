@@ -1,5 +1,6 @@
 *{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 :root {
@@ -11,6 +12,12 @@
   --brand-ligth:  hsl(148, 23%, 89%);
   --nav-height: 7.2rem;
 }
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 body{
   font-family: 'DM Sans';
   font-size: 1.6rem;
@@ -23,13 +30,18 @@ body{
     
     
 }
+
+ul {
+  list-style: none; /*tira o estilo lista da ul*/
+}
+
 /*====HEADER=========*/
 header{
    margin-top: calc(4.1rem + var(--nav-height));
 }
 header::before{  /*Colocando conteudo antes do header*/
   content: "";
-  width: 100vw;
+  width: 100%; /*100vw Largura de 100viewport width o ideal é 100%*/
   height:calc(108rem + var(--nav-height)) ;
   background-color: var(--brand-ligth);
   display: block; /*Um plano de fundo solido, quadrado e colorido*/
@@ -48,6 +60,7 @@ header h1{
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
+
   margin-bottom: 2.4rem;
 }
 header p{
@@ -63,19 +76,25 @@ h3{
 }
 header button{
   background: var(--primary-color);
+
   border: none;
   border-radius: 4rem;
+
   margin-bottom: 6rem;
+
   height: 6.2rem;
   width: 26.3rem;
-  color: #fff;
-  text-transform: uppercase;/*Caixa*/
+
+  color: white;
   font-size: 1.4rem;
   font-weight: 700;
-  gap: 1.6rem;
+  text-transform: uppercase;/*Caixa*/
+
   display: flex; /*Deixa conteudo da caixa flexivel*/
   align-items: center; /*alinhamento dos itens*/
   justify-content: center; /*alinhamento dos itens*/
+  gap: 1.6rem;
+
   margin-left: auto;
   margin-right: auto ;
 }
@@ -86,13 +105,14 @@ header img {
   object-position: 0 2rem; /*a imagem é uma casca que tem um conteudo, coordenada x, y , fez o conteudo abaixar*/
 }
 .stats{
-
   width: 32.7rem;
   padding-block: 4rem;
   margin-inline: auto;        /*Eixo X, Y = margin-left e rigth*/
+
   background-color: var(--brand-beige);
   border: 1px solid var(--brand-ligth) ;
-  border-radius: 01.6rem;
+  border-radius: 0.6rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,6 +124,7 @@ header img {
   font-size: 4.8rem;
   color: var(--headline);
   line-height: 130%;
+
   margin-bottom: 0.4rem;
 }
 .stat p{
@@ -117,9 +138,9 @@ header img {
 /*====NAVIGATION=========*/
 nav{
   display: flex;
-  align-items: center;
-  position: fixed;
+
   height: var(--nav-height); /*Altura*/
+  position: fixed;
   top: 0;
   left:50%;
   transform: translatex(-50%); /*Divide a tela em dois e define espaçamento*/
@@ -141,4 +162,65 @@ nav.scroll svg:nth-child(1) path{
 nav.scroll svg:nth-child(2) path{
   stroke: white;
  
+}
+/*====MENU-EXPANDED=========*/
+body.menu-expanded {
+  overflow:hidden; /*tira a barra de rolamento do menu - scroll */
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu{
+  opacity: 0;    /* invisivel e clicavel*/
+  visibility:hidden; /*nao é mais clicavel */
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility:visible;
+}
+
+body.menu-expanded .menu{
+  position:fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+body.menu-expanded nav{
+  position: relative;
+}
+
+.menu ul{
+  display: flex;
+  flex-direction: column;
+}
+
+.menu .button{
+  background:white;
+  border-radius: 4rem;
+  font-weight: 700; /*expessura da fonte*/
+  font-size: 1.8rem; 
+  line-height: 2.3rem;
+  text-transform: uppercase; /*tudo caixa alta*/
+  text-decoration: none; /*tira o sublinhado*/
+
+  color: var(--primary-color);
+
+  display: inline-block; /*aplica altura e largura*/
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 3.2rem;
 }
