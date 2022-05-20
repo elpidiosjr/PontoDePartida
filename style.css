@@ -1,34 +1,47 @@
-*{
+/*======GERAL=================*/
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
-  font-size: 62.5%; /*1 rem = 10 px*/
+  
+  /*1 rem = 10 px*/
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
-  --paragraph:  hsl(210, 9%, 31%);
-  --brand-beige:  hsl(39, 100%, 97%);
-  --brand-ligth:  hsl(148, 23%, 89%);
+  --paragraph: hsl(210, 9%, 31%);
+  
+  --brand-beige: hsl(39, 100%, 97%);
+  --brand-ligth: hsl(148, 23%, 89%);
+  
+  font-size: 62.5%;
+  
   --nav-height: 7.2rem;
 }
+
 html,
 body {
   width: 100%;
   height: 100%;
 }
 
-body{
+body {
   font-family: 'DM Sans';
   font-size: 1.6rem;
+
   text-align: center;
+
+  overflow: overlay;
+
 }
-.wrapper{  
-    width: 37.5rem;
-    margin-inline: auto; /*Preenchimento lateral*/
-    padding-inline:2.4rem;
-    
-    
+
+.wrapper {
+  width: 37.5rem;
+  margin-inline: auto; /*Preenchimento lateral*/
+  padding-inline: 2.4rem;
+
+
 }
 
 ul {
@@ -36,45 +49,56 @@ ul {
 }
 
 /*====HEADER=========*/
-header{
-   margin-top: calc(4.1rem + var(--nav-height));
+header {
+  margin-top: calc(4.1rem + var(--nav-height));
 }
-header::before{  /*Colocando conteudo antes do header*/
-  content: "";
-  width: 100%; /*100vw Largura de 100viewport width o ideal é 100%*/
-  height:calc(108rem + var(--nav-height)) ;
-  background-color: var(--brand-ligth);
-  display: block; /*Um plano de fundo solido, quadrado e colorido*/
 
-  position:absolute; /*Por cima dos outros conteudos*/  
-  top:0;
+header::before {
+  /*Colocando conteudo antes do header*/
+  content: '';
+  width: 100%;
+  /*100vw Largura de 100viewport width o ideal é 100%*/
+  height: calc(108rem + var(--nav-height));
+  background-color: var(--brand-ligth);
+  display: block;
+  /*Um plano de fundo solido, quadrado e colorido*/
+
+  position: absolute;
+  /*Por cima dos outros conteudos*/
+  top: 0;
   left: 0;
   z-index: -1;
 }
-header h4{
+
+header h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
-header h1{
+
+header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
 
   margin-bottom: 2.4rem;
 }
-header p{
+
+header p {
   font-size: 1.8rem;
-  line-height: 150%; 
+  line-height: 150%;
   font-weight: 400;
   color: var(--paragraph);
+  
   margin-bottom: 3.2rem;
 }
-h3{
+
+/* h3 {
   font-size: 3.4rem;
-  
-}
-header button{
+
+} */
+
+header button {
   background: var(--primary-color);
 
   border: none;
@@ -88,46 +112,58 @@ header button{
   color: white;
   font-size: 1.4rem;
   font-weight: 700;
-  text-transform: uppercase;/*Caixa*/
+  text-transform: uppercase;
+  /*Caixa*/
 
-  display: flex; /*Deixa conteudo da caixa flexivel*/
-  align-items: center; /*alinhamento dos itens*/
-  justify-content: center; /*alinhamento dos itens*/
+  display: flex;
+  /*Deixa conteudo da caixa flexivel*/
+  align-items: center;
+  /*alinhamento dos itens*/
+  justify-content: center;
+  /*alinhamento dos itens*/
   gap: 1.6rem;
 
   margin-left: auto;
-  margin-right: auto ;
+  margin-right: auto;
 }
+
 header img {
   width: 26.4rem;
-  display: block; /* desprende a imagem mas perde o alinhamento*/
-  margin-inline: auto; /* retorna o alinhamento*/
-  object-position: 0 2rem; /*a imagem é uma casca que tem um conteudo, coordenada x, y , fez o conteudo abaixar*/
+  display: block;
+  /* desprende a imagem mas perde o alinhamento*/
+  margin-inline: auto;
+  /* retorna o alinhamento*/
+  object-position: 0 2rem;
+  /*a imagem é uma casca que tem um conteudo, coordenada x, y , fez o conteudo abaixar*/
 }
-.stats{
+
+.stats {
   width: 32.7rem;
   padding-block: 4rem;
-  margin-inline: auto;        /*Eixo X, Y = margin-left e rigth*/
+  margin-inline: auto;
+  /*Eixo X, Y = margin-left e rigth*/
 
   background-color: var(--brand-beige);
-  border: 1px solid var(--brand-ligth) ;
+  border: 1px solid var(--brand-ligth);
   border-radius: 0.6rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 6rem;
-  
- 
+
+
 }
-.stat h3{
+
+.stat h3 {
   font-size: 4.8rem;
   color: var(--headline);
   line-height: 130%;
 
   margin-bottom: 0.4rem;
 }
-.stat p{
+
+.stat p {
   margin: 0;
   color: var(--primary-color);
   font-size: 1.6rem;
@@ -135,92 +171,202 @@ header img {
 
 
 }
+
 /*====NAVIGATION=========*/
-nav{
+nav {
   display: flex;
 
-  height: var(--nav-height); /*Altura*/
+  height: var(--nav-height);
+  /*Altura*/
   position: fixed;
   top: 0;
-  left:50%;
-  transform: translatex(-50%); /*Divide a tela em dois e define espaçamento*/
+  left: 50%;
+  transform: translatex(-50%);
+  /*Divide a tela em dois e define espaçamento*/
 
 }
-nav.wrapper{
+
+nav.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-nav.scroll{
+
+nav.scroll {
   background: var(--primary-color);
   width: 100vw;
+  position: fixed;
+  top: 0;
 }
-nav.scroll svg:nth-child(1) path{
-  fill:white;
-  
+
+nav.scroll svg:nth-child(1) path {
+  fill: white;
+
 }
-nav.scroll svg:nth-child(2) path{
+
+nav.scroll button path {
   stroke: white;
- 
 }
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  /*consegue ver mouse no icone*/
+}
+
+
 /*====MENU-EXPANDED=========*/
 body.menu-expanded {
-  overflow:hidden; /*tira a barra de rolamento do menu - scroll */
+  overflow: hidden;
+  /*tira a barra de rolamento do menu - scroll */
 }
+
+body.menu-expanded > :not(nav) {
+  display: none;
+}
+
+/*  *.asterisco pega todos os filhos do primeiro nivel e o not pega menos aquele*/
 
 .menu,
 .close-menu,
-body.menu-expanded .open-menu{
-  opacity: 0;    /* invisivel e clicavel*/
-  visibility:hidden; /*nao é mais clicavel */
+body.menu-expanded .open-menu {
+  opacity: 0;
+  /* invisivel e clicavel*/
+  visibility: hidden;
+  /*nao é mais clicavel */
 }
 
 body.menu-expanded .menu,
 body.menu-expanded .close-menu {
   opacity: 1;
-  visibility:visible;
+  visibility: visible;
 }
 
-body.menu-expanded .menu{
-  position:fixed;
+body.menu-expanded .menu {
+  position: fixed;
   top: 0;
   left: 0;
   background: var(--primary-color);
 
   width: 100vw;
   height: 100vh;
+
+  padding-top: var(--nav-height);
 }
 
-body.menu-expanded nav{
+body.menu-expanded nav {
   position: relative;
 }
 
-.menu ul{
+.menu ul:nth-child(1) {
   display: flex;
   flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+
 }
 
-.menu .button{
-  background:white;
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+
+.menu .button {
+  background: white;
   border-radius: 4rem;
-  font-weight: 700; /*expessura da fonte*/
-  font-size: 1.8rem; 
+  font-weight: 700;
+  /*expessura da fonte*/
+  font-size: 1.8rem;
   line-height: 2.3rem;
-  text-transform: uppercase; /*tudo caixa alta*/
-  text-decoration: none; /*tira o sublinhado*/
+  text-transform: uppercase;
+  /*tudo caixa alta*/
+  text-decoration: none;
+  /*tira o sublinhado*/
 
   color: var(--primary-color);
 
-  display: inline-block; /*aplica altura e largura*/
+  display: inline-block;
+  /*aplica altura e largura*/
   padding: 16px 32px;
 
   margin-top: 4.8rem;
   margin-bottom: 8rem;
+
 }
 
 .social-links {
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+  /*coloca a logo do 1 plano no 2 plano*/
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+
+}
+
+body.menu-expanded button path {
+  stroke: white;
+
+}
+
+
+/*====SERVICES===================*/
+
+#services header h4{
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+
+  color: var(--primary-color);
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.6rem;
+}
+
+#services header h2{
+font-size: 3rem;
+line-height: 3.9rem;
+
+color: var(--headline);
+
+margin-bottom: 6rem;
+}
+
+#services  .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem; /* espaço entre os box's */
+}
+
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+
+  background: white;
+
+  border: 1px solid var(--brand-ligth) ;
+  border-radius: .6rem;
+}
+
+#services .card h3 {
+  margin-bottom: 1.6rem;
 }
