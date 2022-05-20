@@ -6,8 +6,6 @@
 }
 
 :root {
-  
-  /*1 rem = 10 px*/
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
@@ -15,7 +13,7 @@
   --brand-beige: hsl(39, 100%, 97%);
   --brand-ligth: hsl(148, 23%, 89%);
   
-  font-size: 62.5%;
+  font-size: 62.5%; /*1 rem = 10 px*/
   
   --nav-height: 7.2rem;
 }
@@ -33,15 +31,12 @@ body {
   text-align: center;
 
   overflow: overlay;
-
 }
 
 .wrapper {
   width: 37.5rem;
   margin-inline: auto; /*Preenchimento lateral*/
   padding-inline: 2.4rem;
-
-
 }
 
 ul {
@@ -53,18 +48,14 @@ header {
   margin-top: calc(4.1rem + var(--nav-height));
 }
 
-header::before {
-  /*Colocando conteudo antes do header*/
+header::before { /*Colocando conteudo antes do header*/
   content: '';
-  width: 100%;
-  /*100vw Largura de 100viewport width o ideal é 100%*/
+  width: 100%;  /*100vw Largura de 100viewport width o ideal é 100%*/
   height: calc(108rem + var(--nav-height));
   background-color: var(--brand-ligth);
-  display: block;
-  /*Um plano de fundo solido, quadrado e colorido*/
+  display: block; /*Um plano de fundo solido, quadrado e colorido*/
 
-  position: absolute;
-  /*Por cima dos outros conteudos*/
+  position: absolute; /*Por cima dos outros conteudos*/
   top: 0;
   left: 0;
   z-index: -1;
@@ -93,11 +84,6 @@ header p {
   margin-bottom: 3.2rem;
 }
 
-/* h3 {
-  font-size: 3.4rem;
-
-} */
-
 header button {
   background: var(--primary-color);
 
@@ -113,14 +99,10 @@ header button {
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
-  /*Caixa*/
-
-  display: flex;
-  /*Deixa conteudo da caixa flexivel*/
+  
+  display: flex; /*Deixa conteudo da caixa flexivel*/
   align-items: center;
-  /*alinhamento dos itens*/
-  justify-content: center;
-  /*alinhamento dos itens*/
+  justify-content: center; /*alinhamento dos itens*/
   gap: 1.6rem;
 
   margin-left: auto;
@@ -129,19 +111,15 @@ header button {
 
 header img {
   width: 26.4rem;
-  display: block;
-  /* desprende a imagem mas perde o alinhamento*/
-  margin-inline: auto;
-  /* retorna o alinhamento*/
-  object-position: 0 2rem;
-  /*a imagem é uma casca que tem um conteudo, coordenada x, y , fez o conteudo abaixar*/
+  display: block;  /* desprende a imagem mas perde o alinhamento*/
+  margin-inline: auto;  /* retorna o alinhamento*/
+  object-position: 0 2rem;  /*a imagem é uma casca que tem um conteudo, coordenada x, y , fez o conteudo abaixar*/
 }
 
 .stats {
   width: 32.7rem;
   padding-block: 4rem;
-  margin-inline: auto;
-  /*Eixo X, Y = margin-left e rigth*/
+  margin-inline: auto;  /*Eixo X, Y = margin-left e rigth*/
 
   background-color: var(--brand-beige);
   border: 1px solid var(--brand-ligth);
@@ -151,8 +129,6 @@ header img {
   flex-direction: column;
   justify-content: center;
   gap: 6rem;
-
-
 }
 
 .stat h3 {
@@ -168,25 +144,21 @@ header img {
   color: var(--primary-color);
   font-size: 1.6rem;
   line-height: 150%;
-
-
 }
 
 /*====NAVIGATION=========*/
 nav {
   display: flex;
 
-  height: var(--nav-height);
-  /*Altura*/
+  height: var(--nav-height);  /*Altura*/
+
   position: fixed;
   top: 0;
   left: 50%;
-  transform: translatex(-50%);
-  /*Divide a tela em dois e define espaçamento*/
-
+  transform: translateX(-50%);  /*Divide a tela em dois e define espaçamento*/
 }
 
-nav.wrapper {
+nav .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -201,7 +173,6 @@ nav.scroll {
 
 nav.scroll svg:nth-child(1) path {
   fill: white;
-
 }
 
 nav.scroll button path {
@@ -211,30 +182,23 @@ nav.scroll button path {
 nav button {
   background: none;
   border: none;
-  cursor: pointer;
-  /*consegue ver mouse no icone*/
+  cursor: pointer;  /*consegue ver mouse no icone*/
 }
-
 
 /*====MENU-EXPANDED=========*/
 body.menu-expanded {
-  overflow: hidden;
-  /*tira a barra de rolamento do menu - scroll */
+  overflow: hidden;  /*tira a barra de rolamento do menu - scroll */
 }
 
 body.menu-expanded > :not(nav) {
   display: none;
-}
-
-/*  *.asterisco pega todos os filhos do primeiro nivel e o not pega menos aquele*/
+}  /*  *.asterisco pega todos os filhos do primeiro nivel e o not pega menos aquele*/
 
 .menu,
 .close-menu,
 body.menu-expanded .open-menu {
-  opacity: 0;
-  /* invisivel e clicavel*/
-  visibility: hidden;
-  /*nao é mais clicavel */
+  opacity: 0;  /* invisivel e clicavel*/
+  visibility: hidden;  /*nao é mais clicavel */
 }
 
 body.menu-expanded .menu,
@@ -269,7 +233,6 @@ body.menu-expanded nav {
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 3.1rem;
-
 }
 
 .menu ul li a {
@@ -277,28 +240,22 @@ body.menu-expanded nav {
   text-decoration: none;
 }
 
-
 .menu .button {
   background: white;
   border-radius: 4rem;
-  font-weight: 700;
-  /*expessura da fonte*/
+  font-weight: 700;  /*expessura da fonte*/
   font-size: 1.8rem;
   line-height: 2.3rem;
-  text-transform: uppercase;
-  /*tudo caixa alta*/
-  text-decoration: none;
-  /*tira o sublinhado*/
+  text-transform: uppercase;  /*tudo caixa alta*/
+  text-decoration: none;  /*tira o sublinhado*/
 
   color: var(--primary-color);
 
-  display: inline-block;
-  /*aplica altura e largura*/
+  display: inline-block;  /*aplica altura e largura*/
   padding: 16px 32px;
 
   margin-top: 4.8rem;
   margin-bottom: 8rem;
-
 }
 
 .social-links {
@@ -311,20 +268,16 @@ body.menu-expanded nav {
 body.menu-expanded .logo,
 body.menu-expanded button {
   position: relative;
-  z-index: 100;
-  /*coloca a logo do 1 plano no 2 plano*/
+  z-index: 100;  /*coloca a logo do 1 plano no 2 plano*/
 }
 
 body.menu-expanded .logo path {
   fill: white;
-
 }
 
 body.menu-expanded button path {
   stroke: white;
-
 }
-
 
 /*====SERVICES===================*/
 
