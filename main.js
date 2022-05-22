@@ -6,9 +6,16 @@ function onScroll() {
     }
 }
 
+
 function openMenu() {
     document.body.classList.add('menu-expanded')
 }
 function closeMenu() {
     document.body.classList.remove('menu-expanded')
 }
+
+
+
+
+// Efeito ao carregar a pagina
+ScrollReveal().reveal('#home'); 
