@@ -56,7 +56,145 @@ section {
   padding-block: 10rem;
 }
 
-/*====#HOMED=========*/
+
+/*====NAVIGATION=========*/
+nav {
+  display: flex;
+
+  height: var(--nav-height);  /*Altura*/
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100; /*Coloca por cima de todas as camadas*/
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+ background: var(--primary-color);
+}
+
+nav.scroll .logo path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;  /*consegue ver mouse no icone*/
+}
+
+
+/*====MENU-EXPANDED=========*/
+body.menu-expanded {
+  overflow: hidden;  /*tira a barra de rolamento do menu - scroll */
+}
+
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+  /*display: none; *.asterisco pega todos os filhos do primeiro nivel e o not pega menos aquele*/
+}
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;  /* invisivel e clicavel*/
+  visibility: hidden;  /*nao é mais clicavel */
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%); /*esconde M e n u todo la embaixo do body*/
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-height);
+
+  transition: transform 300ms; /* opacity 700ms aparece lentamente*/
+  transform: translateY(0%); /*m e n u volta para cima */
+
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu .button {
+  background: white;
+  border-radius: 4rem;
+  font-weight: 700;  /*expessura da fonte*/
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;  /*tudo caixa alta*/
+  text-decoration: none;  /*tira o sublinhado*/
+
+  color: var(--primary-color);
+
+  display: inline-block;  /*aplica altura e largura*/
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;  /*coloca a logo do 1 plano no 2 plano*/
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke: white;
+}
+
+
+/*====#HOME=========*/
 #home {
   padding-top: calc(4.1rem + var(--nav-height));
 }
@@ -159,147 +297,6 @@ section {
   line-height: 150%;
 }
 
-/*====NAVIGATION=========*/
-nav {
-  display: flex;
-
-  height: var(--nav-height);  /*Altura*/
-
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);  /*Divide a tela em dois e define espaçamento*/
-}
-
-nav .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav.scroll {
-  background: var(--primary-color);
-  width: 100vw;
-  position: fixed;
-  top: 0;
-}
-
-nav.scroll svg:nth-child(1) path {
-  fill: white;
-}
-
-nav.scroll button path {
-  stroke: white;
-}
-
-nav button {
-  background: none;
-  border: none;
-  cursor: pointer;  /*consegue ver mouse no icone*/
-}
-
-/*====MENU-EXPANDED=========*/
-body.menu-expanded {
-  overflow: hidden;  /*tira a barra de rolamento do menu - scroll */
-}
-
-body.menu-expanded > :not(nav) {
-  display: none;
-}  /*  *.asterisco pega todos os filhos do primeiro nivel e o not pega menos aquele*/
-
-.menu,
-.close-menu,
-body.menu-expanded .open-menu {
-  opacity: 0;  /* invisivel e clicavel*/
-  visibility: hidden;  /*nao é mais clicavel */
-}
-
-body.menu-expanded .menu,
-body.menu-expanded .close-menu {
-  opacity: 1;
-  visibility: visible;
-}
-
-.menu {
-  transform: translateY(100%); /*esconde M e n u todo la embaixo do body*/
-}
-
-body.menu-expanded .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: var(--primary-color);
-
-  width: 100vw;
-  height: 100vh;
-
-  padding-top: var(--nav-height);
-
-  transition: transform 300ms; /* opacity 700ms aparece lentamente*/
-  transform: translateY(0%); /*m e n u volta para cima */
-
-}
-
-body.menu-expanded nav {
-  position: relative;
-}
-
-.menu ul:nth-child(1) {
-  display: flex;
-  flex-direction: column;
-  gap: 4.8rem;
-
-  margin-top: 6rem;
-
-  font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 3.1rem;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menu .button {
-  background: white;
-  border-radius: 4rem;
-  font-weight: 700;  /*expessura da fonte*/
-  font-size: 1.8rem;
-  line-height: 2.3rem;
-  text-transform: uppercase;  /*tudo caixa alta*/
-  text-decoration: none;  /*tira o sublinhado*/
-
-  color: var(--primary-color);
-
-  display: inline-block;  /*aplica altura e largura*/
-  padding: 16px 32px;
-
-  margin-top: 4.8rem;
-  margin-bottom: 8rem;
-}
-
-.social-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
-}
-
-body.menu-expanded .logo,
-body.menu-expanded button {
-  position: relative;
-  z-index: 100;  /*coloca a logo do 1 plano no 2 plano*/
-}
-
-body.menu-expanded .logo path {
-  fill: white;
-}
-
-body.menu-expanded button path {
-  stroke: white;
-}
-
 /*====SERVICES===================*/
 
 #services header h4{
@@ -342,3 +339,6 @@ margin-bottom: 6rem;
 #services .card h3 {
   margin-bottom: 1.6rem;
 }
+
+
+/*====ABOUT===================*/
