@@ -1,8 +1,8 @@
 function onScroll() {
     if (scrollY > 0) {
-        navigation.classList('scroll')
+        navigation.classList.add('scroll')
     } else {
-        navigation.classList.remove('scroll')
+         navigation.classList.remove('scroll')
     }
 }
 
@@ -24,7 +24,10 @@ ScrollReveal({
 #home .stats,
 #services,
 #services header,
-#services .card`)  // Efeito ao carregar a pagina, ordem de carregamento.
+#services .card
+#about,
+#about header,
+#about .content`)  // Efeito ao carregar a pagina, ordem de carregamento.
 
 
 //  function ScrollReveal() {
