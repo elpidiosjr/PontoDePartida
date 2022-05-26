@@ -6,7 +6,7 @@
 }
 
 :root {
-  --hue: 290;
+  --hue: 750;
   --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(293, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
@@ -135,12 +135,17 @@ section .content p {
 #backToTopButton circle {
   fill: var(--primary-color);
 }
+button.open-menu path[stroke*="#00856F"],
 #contact li path{
   stroke: var(--primary-color);
 }
-
-#navigation.scroll .logo path[fill*="#00856F"]{
+body.menu-expanded #navigation .logo path,
+#navigation.scroll .logo path{
   fill: white;
+}
+
+#navigation.scroll button.open-menu path{
+  stroke: white;
 }
 
 /*====NAVIGATION=========*/
@@ -166,20 +171,11 @@ nav.scroll {
  background: var(--primary-color);
 }
 
-nav.scroll .logo path {
-  fill: white;
-}
-
-nav.scroll button path {
-  stroke: white;
-}
-
 nav button {
   background: none;
   border: none;
   cursor: pointer;  /*consegue ver mouse no icone*/
 }
-
 
 /*====MENU-EXPANDED=========*/
 body.menu-expanded {
