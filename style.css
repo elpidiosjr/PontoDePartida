@@ -45,7 +45,7 @@ body {
 }
 
 .wrapper {
-  width: 37.5rem;
+  width: min(50rem, 100%);
   margin-inline: auto; /*Preenchimento lateral*/
   padding-inline: 2.4rem;
 }
@@ -177,6 +177,11 @@ nav button {
   cursor: pointer;  /*consegue ver mouse no icone*/
 }
 
+nav .menu,
+nav .close-menu {
+  position: fixed;
+}
+
 /*====MENU-EXPANDED=========*/
 body.menu-expanded {
   overflow: hidden;  /*tira a barra de rolamento do menu - scroll */
@@ -204,7 +209,7 @@ body.menu-expanded .close-menu {
 }
 
 body.menu-expanded .menu {
-  position: fixed;
+
   top: 0;
   left: 0;
   background: var(--primary-color);
@@ -481,4 +486,27 @@ footer .social-links{
 opacity: 1;
 visibility: visible;
 transform: translateY(0); /*o button retorna*/
+}
+
+/*==== RESPONSIVO ===================*/
+
+@media (min-width: 1024px) {
+
+/*==== GERAL  ===================*/
+
+/*==== NAVIGATION  ===================*/
+
+
+  /* reset */
+  nav#navigation .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    font-size: initial;
+    transform: initial;
+    
+  }
 }
