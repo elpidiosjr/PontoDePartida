@@ -13,6 +13,7 @@
   
   --brand-beige: hsl(39, 100%, 97%);
   --brand-ligth: hsl(calc(var(--hue) - 22), 23%, 89%);
+  --brand-ligth-2: hsl(calc(var(--hue) + 10), 23%, 89%);
   --brand-dark: hsl(var(--hue), 100%, 14%);
   
   --bg-light: hsl(180, 14%, 97%);
@@ -323,9 +324,9 @@ body.menu-expanded button path {
 }
 
 #home .stats {
-  width: 32.7rem;
+  /* width: 32.7rem; */
   padding-block: 4rem;
-  margin-inline: auto;  /*Eixo X, Y = margin-left e rigth*/
+  /*margin-inline: auto;  Eixo X, Y = margin-left e rigth*/
 
   background-color: var(--brand-beige);
   border: 1px solid var(--brand-ligth);
@@ -495,6 +496,8 @@ transform: translateY(0); /*o button retorna*/
 /*==== GERAL  ===================*/
 .wrapper {
   width: min(112rem, 100%);
+  display: grid; /*pode trabalhar com linhas e colunas, ja o flex so pode trabalhar lado a lado
+  como 1 linha ou abaixo como 1 coluna*/
 }
 
 /*==== NAVIGATION  ===================*/
@@ -514,6 +517,7 @@ transform: translateY(0); /*o button retorna*/
     color: initial;
     background-color: initial;
     font-weight: initial;
+    filter: initial;
   }
 
   nav#navigation .close-menu,
@@ -556,8 +560,15 @@ transform: translateY(0); /*o button retorna*/
   text-transform: uppercase;
 
   }
+
+  nav#navigation .menu a.button:hover{
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+  }
+
   nav#navigation.scroll .menu ul li a {
-    color: var(--brand-ligth);
+    color: var(--brand-ligth-2);
     opacity: 0.6;
 
   }
@@ -565,4 +576,94 @@ transform: translateY(0); /*o button retorna*/
     border-color: white;
     color: white;
   }
+
+  nav#navigation .menu li a{
+    transition: opacity 4s;
+  }
+  nav#navigation .menu li a:active,
+  nav#navigation .menu li a:hover {
+    opacity: 1;
+    font-weight: 700;
+  }
+  nav#navigation .menu li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-color);
+
+    position: relative;
+    bottom: -2rem; /* descendo o traçado do bottom */
+
+    left: -0.5rem;
+    display: block;
+    transition: width 0.2s;
+  }
+  nav#navigation.scroll .menu li a::after {
+    background-color: white;
+  }
+  nav#navigation .menu li a.active::after,
+  nav#navigation .menu li a:hover::after {
+    padding-inline: 0.8rem;
+    width: 100%;
+  }
+  nav#navigation .menu li a.active,
+  nav#navigation .menu li a:hover{
+    opacity: 1;
+  }
+  nav#navigation.scroll .menu a.button.active,
+  nav#navigation.scroll .menu a.button:hover{
+    background-color: var(--primary-color);
+    filter: brightness(1.3);
+    border: none;
+  }
+/*==== HOME ==================*/
+  #home::before{
+    height: calc(86% - var(--nav-height));
+  }
+  #home {
+  padding-top: var(--nav-height);
+}
+  #home .wrapper {
+    grid-template-columns: 60.5rem 1fr; /* 1fr.. 2 fr flexivel */
+    grid-template-areas:
+    'A B'
+    'C C';
+  }
+  #home .col-a {
+    grid-area: A;
+    text-align: left;
+    align-self: center;
+  }
+
+  #home .col-b {
+    grid-area: B;
+  }
+  #home h1{
+    font-size: 5.2rem;
+  }
+  #home .content p{
+    font-size: 1.8rem;
+  }
+
+  #home .stats {
+    grid-area: C;
+
+    flex-direction: row;
+    padding: 6rem;
+    gap: 0;
+  }
+  #home .stats .stat + .stat{  /*stats pega stat anterior*/
+    border-left: 1px solid var(--primary-color);
+  }
+
+    #home .stats .stat{
+      flex: 1;
+    }
+  #home .button{
+    margin: 0;
+  }
+  #home img {
+    width: 42rem;
+  }
+
 }
