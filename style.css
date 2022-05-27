@@ -291,13 +291,14 @@ body.menu-expanded button path {
 
 /*====#HOME=========*/
 #home {
+  padding-block: 0;
   padding-top: calc(4.1rem + var(--nav-height));
 }
 
 #home::before { /*Colocando conteudo antes do header*/
   content: '';
   width: 100%;  /*100vw Largura de 100viewport width o ideal é 100%*/
-  height: calc(108rem + var(--nav-height));
+  height: calc(76% + var(--nav-height));
   background-color: var(--brand-ligth);
   display: block; /*Um plano de fundo solido, quadrado e colorido*/
 
@@ -489,21 +490,27 @@ visibility: visible;
 transform: translateY(0); /*o button retorna*/
 }
 
-/*==== RESPONSIVO ===================*/
+/* reset */
 
-@media (min-width: 1024px) {
+  @media (min-width: 1024px) {
 
 /*==== GERAL  ===================*/
-.wrapper {
-  width: min(112rem, 100%);
-  display: grid; /*pode trabalhar com linhas e colunas, ja o flex so pode trabalhar lado a lado
-  como 1 linha ou abaixo como 1 coluna*/
-}
+  body {
+    overflow: auto;
+  }
+
+  .wrapper {
+    width: min(112rem, 100%);
+    display: grid; /*pode trabalhar com linhas e colunas, ja o flex so pode trabalhar lado a lado
+    como 1 linha ou abaixo como 1 coluna*/
+  }
+
+  section {
+    padding-block: 16rem;
+  }
 
 /*==== NAVIGATION  ===================*/
 
-
-  /* reset */
   nav#navigation .wrapper * {
     margin: 0;
     padding: 0;
@@ -617,12 +624,14 @@ transform: translateY(0); /*o button retorna*/
     border: none;
   }
 /*==== HOME ==================*/
-  #home::before{
-    height: calc(86% - var(--nav-height));
-  }
   #home {
-  padding-top: var(--nav-height);
-}
+    padding-top: var(--nav-height);
+  }
+
+  #home::before{
+      height: calc(96% - var(--nav-height));
+    }
+ 
   #home .wrapper {
     grid-template-columns: 60.5rem 1fr; /* 1fr.. 2 fr flexivel */
     grid-template-areas:
@@ -665,5 +674,8 @@ transform: translateY(0); /*o button retorna*/
   #home img {
     width: 42rem;
   }
+
+
+
 
 }
