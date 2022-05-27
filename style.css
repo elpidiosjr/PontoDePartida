@@ -509,6 +509,11 @@ transform: translateY(0); /*o button retorna*/
     padding-block: 16rem;
   }
 
+  section h2{
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+
 /*==== NAVIGATION  ===================*/
 
   nav#navigation .wrapper * {
@@ -675,7 +680,19 @@ transform: translateY(0); /*o button retorna*/
     width: 42rem;
   }
 
+/*==== SERVICES ==================*/
+#services h2 { 
+  width: 47rem;
+  margin-inline: auto;
+}
 
-
+#services .cards{                   /*Cards lado a lado*/
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#services .card {
+  width: 30%;
+  flex-grow: 1;
+}
 
 }
