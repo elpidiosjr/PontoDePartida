@@ -5,22 +5,41 @@ function onScroll() {
     showNavOnScroll()
     showBackToTopButtonOnScroll()
     // console.log(scrollY) Imprime posição da rolagem
-    activateMenuAtCurrentSection()
+    activateMenuAtCurrentSection(home)
+    activateMenuAtCurrentSection(services)
+    activateMenuAtCurrentSection(about)
+    activateMenuAtCurrentSection(contact)
+    
 }
 
 
-function activateMenuAtCurrentSection(){
+function activateMenuAtCurrentSection(section){
     const targetLine = scrollY + innerHeight /2
     //verificar se a seção passou da linha
-    const sectionTop = home.offsetTop
-    const sectionHeight = home.offsetHeight
-    //console.log(sectionTop)
-    //console.log(sectionHeight)
-
+    //topo da seção
+    const sectionTop = section.offsetTop
+    // a altura da seção
+    const sectionHeight = section.offsetHeight
+    // console.log(sectionTop)
+    // console.log(sectionHeight)
     // o topo da seção chegou ou ultrapassou a linha alvo
     const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
+    //  console.log(
+    //    'O topo da seção passou da linha?', sectionTopReachOrPassedTargetLine         )
+    const sectionEndsAt = sectionTop + sectionHeight
+    // o final da seção passou da linha alvo
+    const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
+    // console.log('O fundo da seção passou da linha?', sectionEndPassedTargetLine)
+    //limites da seção
+    const sectionBoundaries = sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine 
+     
+    const sectionID = section.getAttribute('id')
+    const menuElement = document.querySelector(`.menu a[href*=${sectionID}]`)
 
-    console.log('O topo da seção passou da linha?', sectionTopReachOrPassedTargetLine)
+        menuElement.classList.remove('active')
+    if (sectionBoundaries) {
+        menuElement.classList.add('active')
+    }
     
 }
 function showNavOnScroll(){
@@ -69,5 +88,6 @@ ScrollReveal({
 
 //      return options
 //  }
+
 
 
