@@ -5,8 +5,24 @@ function onScroll() {
     showNavOnScroll()
     showBackToTopButtonOnScroll()
     // console.log(scrollY) Imprime posição da rolagem
+    activateMenuAtCurrentSection()
 }
 
+
+function activateMenuAtCurrentSection(){
+    const targetLine = scrollY + innerHeight /2
+    //verificar se a seção passou da linha
+    const sectionTop = home.offsetTop
+    const sectionHeight = home.offsetHeight
+    //console.log(sectionTop)
+    //console.log(sectionHeight)
+
+    // o topo da seção chegou ou ultrapassou a linha alvo
+    const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
+
+    console.log('O topo da seção passou da linha?', sectionTopReachOrPassedTargetLine)
+    
+}
 function showNavOnScroll(){
     if (scrollY > 0) {
         navigation.classList.add('scroll')
@@ -53,3 +69,5 @@ ScrollReveal({
 
 //      return options
 //  }
+
+
