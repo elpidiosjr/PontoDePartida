@@ -35,8 +35,15 @@ com o dispositivo que esta acessando a plataforma.</p>
 
 <img src="images\button return desktop.jpg"/>
 
-<p>Contato configurado direcionando ao Whatsapp configurado e o Footer-Rodapé. </p>
+<p>Contato configurado direcionando ao Whatsapp e o Footer-Rodapé com link das redes sociais. </p>
 <h3><strong>Mobile</strong></h3>
 <img src="images\contato - footer mobile.jpg"/>
 <h3><strong>Desktop</strong></h3>
 <img src="images\contato - footer desktop.jpg"/>
+
+<h2 align="center"><strong> >Aplicação< </strong></h2>
+
+<h3><strong>Mobile</strong></h3>
+<img src="images\mobilegif.gif"/>
+<h3><strong>Desktop</strong></h3>
+<img src="./images\doctorrgif.gif"/>
